@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMPULSE | You're Booked. Here's What Happens Next.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --font-headline: 'Archivo', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+
+      --color-ink: #161616;
+      --color-white: #FFFFFF;
+      --color-pulse: #FD4E26;
+      --color-lime: #D4F24B;
+
+      --color-n100: #F2F3EC;
+      --color-n300: #D2CEC6;
+      --color-n500: #78766E;
+      --color-n700: #3A3733;
+
+      --type-h1: clamp(2rem, 4.5vw, 3rem);
+      --type-h2: 1.5rem;
+      --type-body-lg: 1.25rem;
+      --type-body: 1.0625rem;
+      --type-small: 0.875rem;
+      --type-label: 0.6875rem;
+
+      --radius-btn: 4px;
+      --radius-card: 8px;
+      --radius-pill: 9999px;
+
+      --space-8: 0.5rem;
+      --space-12: 0.75rem;
+      --space-16: 1rem;
+      --space-24: 1.5rem;
+      --space-32: 2rem;
+      --space-48: 3rem;
+      --space-64: 4rem;
+      --space-96: 6rem;
+
+      --container-max: 1200px;
+      --content-max: 780px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background-color: var(--color-white); color: var(--color-ink); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    :focus-visible { outline: 2px solid var(--color-pulse); outline-offset: 3px; }
+
+    .container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-24); }
+    @media (min-width: 1024px) { .container { padding: 0 var(--space-96); } }
+    .thank-you-layout { width: 100%; max-width: var(--content-max); margin: 0 auto; padding: var(--space-64) var(--space-24) var(--space-96); }
+
+    .brand-header { padding: var(--space-24) 0; border-bottom: 1px solid var(--color-n300); background-color: var(--color-white); }
+    .brand-logo { font-family: var(--font-headline); font-size: 1.25rem; font-weight: 900; letter-spacing: -0.02em; }
+
+    .confirmation-title { font-family: var(--font-headline); font-size: var(--type-h1); font-weight: 900; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: var(--space-16); text-align: center; }
+    .reaffirm-line { font-size: var(--type-body-lg); color: var(--color-ink); text-align: center; max-width: 56ch; margin: 0 auto var(--space-32); line-height: 1.6; }
+    .video-instruction { font-size: var(--type-body-lg); color: var(--color-n500); text-align: center; margin-bottom: var(--space-32); }
+    .mono-tag { font-family: var(--font-mono); font-size: var(--type-label); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .video-wrapper { position: relative; width: 100%; aspect-ratio: 16 / 9; background-color: var(--color-ink); border: 1px solid var(--color-ink); border-radius: var(--radius-card); overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06); color: var(--color-white); margin-bottom: var(--space-24); }
+    .video-placeholder-label { font-family: var(--font-mono); font-size: var(--type-small); color: var(--color-n300); margin-bottom: var(--space-16); }
+
+    .play-trigger { display: flex; align-items: center; gap: var(--space-12); padding: var(--space-12) var(--space-24); background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: var(--radius-pill); color: var(--color-white); font-family: var(--font-mono); font-size: var(--type-small); cursor: pointer; }
+    .play-icon { width: 0; height: 0; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 12px solid var(--color-lime); }
+
+    /* Autoplay-muted UI */
+    .mute-toggle { position: absolute; bottom: var(--space-16); right: var(--space-16); background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.3); color: #fff; border-radius: var(--radius-pill); padding: var(--space-8) var(--space-12); font-family: var(--font-mono); font-size: 0.6875rem; cursor: pointer; z-index: 2; }
+    .caption-note { position: absolute; bottom: var(--space-16); left: var(--space-16); background: rgba(0,0,0,0.55); color: var(--color-n100); font-family: var(--font-mono); font-size: 0.6875rem; padding: var(--space-8) var(--space-12); border-radius: var(--radius-btn); z-index: 2; }
+
+    .micro-cta { font-size: var(--type-small); color: var(--color-n500); text-align: center; margin-bottom: var(--space-48); }
+
+    .action-card { background-color: var(--color-n100); border: 1px solid var(--color-n300); border-radius: var(--radius-card); padding: var(--space-32); }
+    .action-card-header { display: flex; align-items: center; gap: var(--space-12); margin-bottom: var(--space-16); }
+    .badge-pill { background-color: var(--color-lime); color: var(--color-ink); padding: var(--space-8) var(--space-12); border-radius: var(--radius-pill); border: 1px solid var(--color-ink); }
+    .action-title { font-family: var(--font-headline); font-size: var(--type-h2); font-weight: 800; letter-spacing: -0.02em; }
+    .action-body { font-size: var(--type-body-lg); line-height: 1.65; color: var(--color-ink); }
+
+    .page-footer { padding: var(--space-48) 0; border-top: 1px solid var(--color-n300); background-color: var(--color-n100); text-align: center; font-size: var(--type-small); color: var(--color-n500); }
+  </style>
+</head>
+<body>
+
+  <header class="brand-header">
+    <div class="container"><div class="brand-logo">IMPULSE</div></div>
+  </header>
+
+  <main>
+    <section class="thank-you-layout">
+      <h1 class="confirmation-title">You're Booked. Here's What Happens Next.</h1>
+
+      <p class="reaffirm-line">We mean that. Most businesses that notice their messaging is blending in just live with it. You didn't. That's worth something, and it's why we're not going to waste the next 5 minutes, or the next 20 to 30 on your call.</p>
+
+      <p class="video-instruction">Watch this before your call, it's 5 minutes and it matters.</p>
+
+      <!-- Autoplay is muted on load, so the mute toggle and caption note
+           carry the message until the viewer unmutes. -->
+      <div class="video-wrapper" aria-label="Orientation video: What happens on your call">
+        <div class="video-placeholder-label">[VIDEO EMBED: 5 MINUTES, AUTOPLAY MUTED]</div>
+        <button type="button" class="play-trigger" aria-label="Play orientation video">
+          <span class="play-icon"></span>
+          <span>PLAYING MUTED (5:00)</span>
+        </button>
+        <div class="caption-note">CAPTIONS ON</div>
+        <button class="mute-toggle" aria-label="Unmute video">🔇 TAP TO UNMUTE</button>
+      </div>
+
+      <p class="micro-cta">5 minutes now saves you from walking into the call cold.</p>
+
+      <div class="action-card">
+        <div class="action-card-header">
+          <span class="badge-pill mono-tag">ACTION REQUIRED</span>
+          <h2 class="action-title">Here's What You Need to Do Before Your Call</h2>
+        </div>
+        <p class="action-body">Reply to your confirmation email with your current website link or pitch deck, whatever's the main way people encounter your messaging right now. Don't rewrite anything first, we want to see it exactly as it is.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <div class="container"><p>&copy; IMPULSE. We build brands people remember. Strategy before production.</p></div>
+  </footer>
+
+</body>
+</html>
