@@ -126,6 +126,17 @@
     .radio-card input { margin-right: var(--space-12); accent-color: var(--color-ink); }
 
     .page-footer { padding: var(--space-48) 0; border-top: 1px solid var(--color-n300); background-color: var(--color-n100); text-align: center; font-size: var(--type-small); color: var(--color-n500); }
+
+    /* EXIT-INTENT / TIME-DELAYED POPUP */
+    .exit-modal-overlay { position: fixed; inset: 0; background: rgba(22,22,22,0.6); display: none; align-items: center; justify-content: center; z-index: 1000; padding: var(--space-24); }
+    .exit-modal-overlay.active { display: flex; }
+    .exit-modal { background: var(--color-white); border-radius: var(--radius-card); max-width: 460px; width: 100%; padding: var(--space-32); position: relative; box-shadow: 0 24px 60px rgba(0,0,0,0.25); }
+    .exit-modal-close { position: absolute; top: var(--space-16); right: var(--space-16); background: none; border: none; font-size: 1.25rem; cursor: pointer; color: var(--color-n500); line-height: 1; }
+    .exit-modal .pre-headline-pill { margin-bottom: var(--space-16); }
+    .exit-modal h2 { font-family: var(--font-headline); font-size: 1.5rem; font-weight: 900; margin-bottom: var(--space-16); letter-spacing: -0.02em; }
+    .exit-modal p { font-size: 1.0625rem; line-height: 1.6; margin-bottom: var(--space-24); color: var(--color-n700); }
+    .exit-modal .btn-full { width: 100%; }
+    .exit-modal-dismiss { display: block; width: 100%; text-align: center; margin-top: var(--space-16); font-size: var(--type-small); color: var(--color-n500); text-decoration: underline; cursor: pointer; background: none; border: none; }
   </style>
 </head>
 <body>
@@ -265,6 +276,46 @@
       <p>&copy; IMPULSE. We build brands people remember. Strategy before production.</p>
     </div>
   </footer>
+
+  <!-- EXIT-INTENT / TIME-DELAYED POPUP -->
+  <div class="exit-modal-overlay" id="exit-modal-overlay">
+    <div class="exit-modal">
+      <button class="exit-modal-close" id="exit-modal-close" aria-label="Close">&times;</button>
+      <div class="pre-headline-pill mono-tag">Before you go</div>
+      <h2>Still Sound Like Your Competitors?</h2>
+      <p>Takes less than a minute to grab the training. Watch it whenever works for you, we just don't want you leaving empty-handed.</p>
+      <a href="#training-form" class="btn btn-pulse btn-full" id="exit-modal-cta">Yes, Send Me The Training</a>
+      <button class="exit-modal-dismiss" id="exit-modal-dismiss">No thanks, I'll figure it out myself</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var overlay = document.getElementById('exit-modal-overlay');
+      var shown = false;
+
+      function showModal() {
+        if (shown || sessionStorage.getItem('impulse_popup_shown')) return;
+        shown = true;
+        sessionStorage.setItem('impulse_popup_shown', '1');
+        overlay.classList.add('active');
+      }
+      function hideModal() { overlay.classList.remove('active'); }
+
+      // Exit-intent: cursor leaves toward the top of the viewport (desktop only)
+      document.addEventListener('mouseout', function (e) {
+        if (!e.relatedTarget && e.clientY < 10) showModal();
+      });
+
+      // Time-delayed fallback, covers mobile where exit-intent can't fire
+      setTimeout(showModal, 20000);
+
+      document.getElementById('exit-modal-close').addEventListener('click', hideModal);
+      document.getElementById('exit-modal-dismiss').addEventListener('click', hideModal);
+      document.getElementById('exit-modal-cta').addEventListener('click', hideModal);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) hideModal(); });
+    })();
+  </script>
 
 </body>
 </html>
