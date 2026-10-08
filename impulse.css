@@ -1,0 +1,103 @@
+/* IMPULSE funnel: shared tokens, base styles and components.
+   Page-specific layout lives in each page's own <style> block. */
+
+:root {
+  --font-headline: 'Archivo', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --color-ink: #161616;
+  --color-white: #FFFFFF;
+  --color-pulse: #FD4E26;
+  --color-lime: #D4F24B;
+  --color-error: #B3261E;
+
+  --color-n100: #F2F3EC;
+  --color-n300: #D2CEC6;
+  --color-n500: #6B6962;   /* darkened from #78766E: passes 4.5:1 on both white and n100 */
+  --color-n700: #3A3733;
+
+  --type-hero: clamp(2.5rem, 5.5vw, 4rem);
+  --type-h1: clamp(2.25rem, 4.5vw, 3.25rem);
+  --type-h2: 2rem;
+  --type-h3: 1.5rem;
+  --type-body-lg: 1.25rem;
+  --type-body: 1.0625rem;
+  --type-small: 0.875rem;
+  --type-label: 0.6875rem;
+
+  --radius-btn: 4px;
+  --radius-card: 8px;
+  --radius-pill: 9999px;
+
+  --space-8: 0.5rem;
+  --space-12: 0.75rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+  --space-96: 6rem;
+
+  --container-max: 1200px;
+  --content-max: 780px;
+}
+
+/* Base */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-white);
+  color: var(--color-ink);
+  font-size: var(--type-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+:focus-visible { outline: 2px solid var(--color-pulse); outline-offset: 3px; }
+a { color: inherit; }
+
+h1, h2, h3, h4 { font-family: var(--font-headline); color: var(--color-ink); letter-spacing: -0.025em; line-height: 1.15; }
+
+/* Layout */
+.container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-24); }
+@media (min-width: 1024px) { .container { padding: 0 var(--space-96); } }
+.container-reading { width: 100%; max-width: var(--content-max); margin: 0 auto; padding: 0 var(--space-24); }
+
+.section-block { padding: var(--space-96) 0; border-top: 1px solid var(--color-n300); }
+.section-block.quiet { background-color: var(--color-n100); }
+
+/* Type helpers */
+.mono-tag { font-family: var(--font-mono); font-size: var(--type-label); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+.section-kicker { font-family: var(--font-mono); font-size: var(--type-label); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-n500); margin-bottom: var(--space-12); }
+.section-title { font-size: var(--type-h2); font-weight: 800; margin-bottom: var(--space-24); }
+.body-lg { font-size: var(--type-body-lg); line-height: 1.7; color: var(--color-ink); margin-bottom: var(--space-24); }
+.pre-headline-pill { display: inline-block; background-color: var(--color-n100); color: var(--color-n700); padding: var(--space-8) var(--space-12); border-radius: var(--radius-btn); border: 1px solid var(--color-n300); margin-bottom: var(--space-24); }
+.micro-cta { font-size: var(--type-small); color: var(--color-n500); margin-top: var(--space-8); line-height: 1.4; }
+.text-center { text-align: center; }
+
+/* Header & footer */
+.brand-header { padding: var(--space-24) 0; border-bottom: 1px solid var(--color-n300); background-color: var(--color-white); }
+.header-layout { display: flex; justify-content: space-between; align-items: center; gap: var(--space-16); }
+.header-stage { color: var(--color-n500); }
+.brand-logo { font-family: var(--font-headline); font-size: 1.25rem; font-weight: 900; letter-spacing: -0.02em; }
+.page-footer { padding: var(--space-48) 0; border-top: 1px solid var(--color-n300); background-color: var(--color-n100); text-align: center; font-size: var(--type-small); color: var(--color-n500); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: var(--type-body); font-weight: 700; padding: var(--space-16) var(--space-32); border-radius: var(--radius-btn); text-decoration: none; cursor: pointer; transition: opacity 0.15s ease, transform 0.1s ease; border: 1px solid transparent; }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: 0.6; cursor: progress; }
+.btn-ink { background-color: var(--color-ink); color: var(--color-white); border-color: var(--color-ink); font-weight: 600; }
+.btn-ink:hover { background-color: #2E2E2E; }
+.btn-pulse { background-color: var(--color-pulse); color: var(--color-ink); border-color: var(--color-pulse); }
+.btn-pulse:hover { opacity: 0.92; }
+.btn-full { width: 100%; }
+
+/* Video player (pages 2 and 4). impulse.js swaps the placeholder for a
+   muted autoplay <video> once data-video-src is set. */
+.video-shell { position: relative; width: 100%; aspect-ratio: 16 / 9; background: radial-gradient(circle at center, #252525 0%, #111111 100%); border: 1px solid var(--color-n700); border-radius: var(--radius-card); overflow: hidden; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08); }
+.video-shell video { position: absolute; inset: 0; width: 100%; height: 100%; background: #000; }
+.video-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: var(--space-8); padding: var(--space-24); text-align: center; color: var(--color-n300); font-family: var(--font-mono); font-size: var(--type-small); }
+.video-placeholder code { font-size: var(--type-label); color: var(--color-n300); opacity: 0.8; }
+.mute-toggle { position: absolute; bottom: var(--space-16); right: var(--space-16); background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.35); color: #fff; border-radius: var(--radius-pill); padding: var(--space-8) var(--space-12); font-family: var(--font-mono); font-size: var(--type-label); font-weight: 600; letter-spacing: 0.06em; cursor: pointer; z-index: 2; }
+.mute-toggle[hidden] { display: none; }

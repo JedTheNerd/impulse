@@ -4,113 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IMPULSE | Book Your Free Positioning Review</title>
+  <meta name="description" content="Book a free 20 to 30 minute positioning review: a real look at your current messaging, not a sales pitch.">
+  <meta name="robots" content="noindex">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Book Your Free Positioning Review">
+  <meta property="og:description" content="20 to 30 minutes. A real review of your current messaging, not a sales pitch.">
+  <meta name="theme-color" content="#161616">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23161616'/%3E%3Cpath d='M5 17h6l3-8 4 14 3-6h6' fill='none' stroke='%23FD4E26' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="impulse.css">
 
   <style>
-    :root {
-      --font-headline: 'Archivo', -apple-system, sans-serif;
-      --font-body: 'Inter', -apple-system, sans-serif;
-      --font-mono: 'IBM Plex Mono', monospace;
+    :root { --content-max: 900px; } /* wider page: calendar sits beside the qualification panel */
 
-      --color-ink: #161616;
-      --color-white: #FFFFFF;
-      --color-pulse: #FD4E26;
-      --color-lime: #D4F24B;
-
-      --color-n100: #F2F3EC;
-      --color-n300: #D2CEC6;
-      --color-n500: #78766E;
-      --color-n700: #3A3733;
-
-      --type-h1: clamp(2rem, 4.5vw, 3rem);
-      --type-h2: 1.75rem;
-      --type-body-lg: 1.25rem;
-      --type-body: 1.0625rem;
-      --type-small: 0.875rem;
-      --type-label: 0.6875rem;
-
-      --radius-btn: 4px;
-      --radius-card: 8px;
-      --radius-pill: 9999px;
-
-      --space-8: 0.5rem;
-      --space-12: 0.75rem;
-      --space-16: 1rem;
-      --space-24: 1.5rem;
-      --space-32: 2rem;
-      --space-48: 3rem;
-      --space-64: 4rem;
-      --space-96: 6rem;
-
-      --container-max: 1200px;
-      --content-max: 900px;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; scroll-behavior: smooth; }
-    body { font-family: var(--font-body); background-color: var(--color-white); color: var(--color-ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    :focus-visible { outline: 2px solid var(--color-pulse); outline-offset: 3px; }
-
-    .container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-24); }
-    @media (min-width: 1024px) { .container { padding: 0 var(--space-96); } }
     .booking-wrapper { width: 100%; max-width: var(--content-max); margin: 0 auto; padding: var(--space-64) var(--space-24) var(--space-96); }
-
-    .brand-header { padding: var(--space-24) 0; border-bottom: 1px solid var(--color-n300); background-color: var(--color-white); }
-    .brand-logo { font-family: var(--font-headline); font-size: 1.25rem; font-weight: 900; letter-spacing: -0.02em; }
-
     .booking-header { text-align: center; margin-bottom: var(--space-48); }
-    .page-title { font-family: var(--font-headline); font-size: var(--type-h1); font-weight: 900; letter-spacing: -0.025em; margin-bottom: var(--space-16); }
+    .page-title { font-size: var(--type-h1); font-weight: 900; margin-bottom: var(--space-16); }
     .body-intro { font-size: var(--type-body-lg); line-height: 1.65; color: var(--color-n700); max-width: 62ch; margin: 0 auto var(--space-24); }
 
-    .duration-badge { display: inline-flex; align-items: center; gap: var(--space-8); background-color: var(--color-n100); border: 1px solid var(--color-n300); padding: var(--space-8) var(--space-16); border-radius: var(--radius-pill); font-family: var(--font-mono); font-size: var(--type-label); font-weight: 600; color: var(--color-ink); text-transform: uppercase; letter-spacing: 0.08em; }
+    .duration-badge { display: inline-flex; align-items: center; gap: var(--space-8); background-color: var(--color-n100); border: 1px solid var(--color-n300); padding: var(--space-8) var(--space-16); border-radius: var(--radius-pill); color: var(--color-ink); }
     .duration-indicator { width: 8px; height: 8px; border-radius: var(--radius-pill); background-color: var(--color-lime); border: 1px solid var(--color-ink); }
 
     .booking-layout { display: grid; grid-template-columns: 1fr; gap: var(--space-48); align-items: start; }
     @media (min-width: 860px) { .booking-layout { grid-template-columns: 0.55fr 0.45fr; } }
 
+    .micro-cta-above { text-align: center; font-size: var(--type-small); color: var(--color-n500); margin-bottom: var(--space-16); }
     .calendar-card { background-color: var(--color-white); border: 1px solid var(--color-n300); border-radius: var(--radius-card); overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); }
-    .calendar-embed-slot { min-height: 600px; width: 100%; background-color: var(--color-white); display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+    .calendar-embed-slot { min-height: 600px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .calendar-embed-slot iframe { width: 100%; height: 680px; border: 0; }
     .embed-placeholder { font-family: var(--font-mono); font-size: var(--type-small); color: var(--color-n500); text-align: center; padding: var(--space-32); }
     .embed-placeholder code { display: block; margin-top: var(--space-8); font-size: var(--type-label); color: var(--color-n700); }
+    .reassurance-note { text-align: center; margin-top: var(--space-24); font-size: var(--type-small); color: var(--color-n500); line-height: 1.5; }
 
-    .micro-cta-above { text-align: center; font-size: var(--type-small); color: var(--color-n500); margin-bottom: var(--space-16); }
-
-    /* Qualification panel beside the calendar */
     .qualify-panel { background-color: var(--color-n100); border: 1px solid var(--color-n300); border-radius: var(--radius-card); padding: var(--space-32); position: sticky; top: var(--space-24); }
-    .qualify-kicker { font-family: var(--font-mono); font-size: var(--type-label); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-n500); margin-bottom: var(--space-12); }
-    .qualify-panel h2 { font-family: var(--font-headline); font-size: 1.375rem; font-weight: 800; margin-bottom: var(--space-24); }
+    .qualify-panel h2 { font-size: 1.375rem; font-weight: 800; margin-bottom: var(--space-24); }
 
     .persona-block { margin-bottom: var(--space-24); }
-    .persona-block:last-child { margin-bottom: 0; }
-    .persona-block h3 { font-size: 1rem; font-weight: 700; margin-bottom: var(--space-12); display: flex; align-items: center; gap: var(--space-8); }
-    .persona-block.yes h3::before { content: "✓"; color: var(--color-ink); background: var(--color-lime); border-radius: var(--radius-pill); width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; }
-    .persona-block.no h3::before { content: "✕"; color: var(--color-white); background: var(--color-n500); border-radius: var(--radius-pill); width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; }
+    .persona-block:last-of-type { margin-bottom: 0; }
+    .persona-block h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 700; letter-spacing: 0; margin-bottom: var(--space-12); display: flex; align-items: center; gap: var(--space-8); }
+    .persona-block h3::before { border-radius: var(--radius-pill); width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; }
+    .persona-block.yes h3::before { content: "✓"; color: var(--color-ink); background: var(--color-lime); }
+    .persona-block.no h3::before { content: "✕"; color: var(--color-white); background: var(--color-n500); }
     .persona-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-8); padding-left: var(--space-32); }
-    .persona-list li { font-size: 0.9375rem; line-height: 1.5; color: var(--color-ink); position: relative; }
+    .persona-list li { font-size: 0.9375rem; line-height: 1.5; position: relative; }
     .persona-list li::before { content: "–"; position: absolute; left: -1rem; color: var(--color-n500); }
 
     .qualify-footnote { font-size: var(--type-small); color: var(--color-n700); margin-top: var(--space-24); padding-top: var(--space-24); border-top: 1px solid var(--color-n300); line-height: 1.5; }
-
-    .reassurance-note { text-align: center; margin-top: var(--space-24); font-size: var(--type-small); color: var(--color-n500); line-height: 1.5; }
-
-    .page-footer { padding: var(--space-48) 0; border-top: 1px solid var(--color-n300); background-color: var(--color-n100); text-align: center; font-size: var(--type-small); color: var(--color-n500); }
   </style>
 </head>
-<body>
+<body data-stage="03-book">
 
   <header class="brand-header">
-    <div class="container"><div class="brand-logo">IMPULSE</div></div>
+    <div class="container header-layout">
+      <div class="brand-logo">IMPULSE</div>
+      <div class="mono-tag header-stage">STAGE 03 / BOOK YOUR REVIEW</div>
+    </div>
   </header>
 
   <main>
     <section class="booking-wrapper">
       <div class="booking-header">
         <h1 class="page-title">Book Your Free Positioning Review</h1>
-        <p class="body-intro">This is a real review of your current messaging, not a sales pitch. Pick a time below, and come with whatever you've got, your website, your pitch deck, anything you'd want a second look at.</p>
-        <div class="duration-badge">
+        <p class="body-intro">This is a real review of your current messaging, not a sales pitch. Pick a time below and bring whatever you've got: your website, your pitch deck, anything you'd want a second look at.</p>
+        <div class="duration-badge mono-tag">
           <span class="duration-indicator" aria-hidden="true"></span>
           <span>20 to 30 minutes</span>
         </div>
@@ -119,27 +78,29 @@
       <div class="booking-layout">
         <div>
           <p class="micro-cta-above">You're one click from seeing this done on your own business.</p>
-          <div class="calendar-card" aria-label="Schedule your review session">
-            <div class="calendar-embed-slot" id="calendar-root">
+          <div class="calendar-card">
+            <!-- Set data-calendar-src to your scheduler's embed URL, and set the
+                 scheduler's post-booking redirect to impulse-page4-thank-you.html -->
+            <div class="calendar-embed-slot" data-calendar-src="">
               <div class="embed-placeholder">
                 [CALENDAR EMBED]
-                <code>Insert calendar iframe or component script here</code>
+                <code>Set data-calendar-src on .calendar-embed-slot</code>
               </div>
             </div>
           </div>
-          <p class="reassurance-note">You'll get a confirmation and a reminder by email and text before the call.</p>
+          <p class="reassurance-note">You'll get a confirmation and a reminder by email, plus a text reminder if you opted in to texts.</p>
         </div>
 
         <!-- QUALIFICATION PANEL -->
-        <aside class="qualify-panel">
-          <div class="qualify-kicker">Before You Pick a Time</div>
-          <h2>Is This For You?</h2>
+        <aside class="qualify-panel" aria-labelledby="qualify-heading">
+          <div class="section-kicker">Before You Pick a Time</div>
+          <h2 id="qualify-heading">Is This For You?</h2>
 
           <div class="persona-block yes">
             <h3>This is for you if:</h3>
             <ul class="persona-list">
-              <li>Your business is already profitable and something about how it's perceived is holding back investors, customers, or your reputation</li>
-              <li>You already know something's off, you just haven't been able to name it</li>
+              <li>Your business is already profitable, and something about how it's perceived is holding back investors, customers or your reputation</li>
+              <li>You already know something's off; you just haven't been able to name it</li>
               <li>You're ready to act on what we find, not just collect more opinions</li>
             </ul>
           </div>
@@ -153,15 +114,16 @@
             </ul>
           </div>
 
-          <p class="qualify-footnote">If the first list sounds like you, pick a time. If it's the second list, no hard feelings, better to save the slot for someone it's actually right for.</p>
+          <p class="qualify-footnote">If the first list sounds like you, pick a time. If it's the second list, no hard feelings. It's better to save the slot for someone it's actually right for.</p>
         </aside>
       </div>
     </section>
   </main>
 
   <footer class="page-footer">
-    <div class="container"><p>&copy; IMPULSE. We build brands people remember. Strategy before production.</p></div>
+    <div class="container"><p>&copy; IMPULSE. We build brands people remember. Strategy before production. · <a href="privacy.html">Privacy</a></p></div>
   </footer>
 
+  <script src="impulse.js" defer></script>
 </body>
 </html>

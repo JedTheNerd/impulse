@@ -4,131 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IMPULSE | Free Training: The Cut & Reframe Method</title>
+  <meta name="description" content="Free training for SMB owners: the exact process we use to cut generic AI-sounding copy and reframe your message so it sounds like your business again.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Your Competitors Use The Same AI Tools You Do. That's Why You All Sound Identical.">
+  <meta property="og:description" content="Free training: the Cut & Reframe Method, shown live on a real example.">
+  <meta name="theme-color" content="#161616">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23161616'/%3E%3Cpath d='M5 17h6l3-8 4 14 3-6h6' fill='none' stroke='%23FD4E26' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="impulse.css">
 
   <style>
-    :root {
-      --font-headline: 'Archivo', -apple-system, sans-serif;
-      --font-body: 'Inter', -apple-system, sans-serif;
-      --font-mono: 'IBM Plex Mono', monospace;
-
-      --color-ink: #161616;
-      --color-white: #FFFFFF;
-      --color-pulse: #FD4E26;
-      --color-pulse-text: #C9341E;
-      --color-lime: #D4F24B;
-
-      --color-n100: #F2F3EC;
-      --color-n300: #D2CEC6;
-      --color-n500: #78766E;
-      --color-n700: #3A3733;
-
-      --color-success: #1F7A40;
-      --color-warning: #9A5C00;
-      --color-error: #B3261E;
-      --color-info: #105FBF;
-
-      --type-hero: clamp(2.5rem, 5.5vw, 4rem);
-      --type-h1: 3rem;
-      --type-h2: 2.25rem;
-      --type-h3: 1.75rem;
-      --type-body-lg: 1.25rem;     /* bumped up from 1.125rem for a fuller feel */
-      --type-body: 1.0625rem;      /* bumped up from 1rem */
-      --type-small: 0.875rem;
-      --type-label: 0.6875rem;
-
-      --radius-btn: 4px;
-      --radius-card: 8px;
-      --radius-pill: 9999px;
-
-      --space-8: 0.5rem;
-      --space-12: 0.75rem;
-      --space-16: 1rem;
-      --space-24: 1.5rem;
-      --space-32: 2rem;
-      --space-48: 3rem;
-      --space-64: 4rem;
-      --space-96: 6rem;
-      --space-128: 8rem;
-
-      --container-max: 1200px;
-      --content-max: 760px;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      background-color: var(--color-white);
-      color: var(--color-ink);
-      font-size: var(--type-body);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    :focus-visible { outline: 2px solid var(--color-pulse); outline-offset: 3px; }
-
-    .container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-24); }
-    @media (min-width: 1024px) { .container { padding: 0 var(--space-96); } }
-    .container-reading { width: 100%; max-width: var(--content-max); margin: 0 auto; padding: 0 var(--space-24); }
-
-    h1, h2, h3, h4 { font-family: var(--font-headline); color: var(--color-ink); letter-spacing: -0.025em; line-height: 1.15; }
-    .mono-tag { font-family: var(--font-mono); font-size: var(--type-label); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
-
-    .brand-header { padding: var(--space-24) 0; border-bottom: 1px solid var(--color-n300); background-color: var(--color-white); }
-    .brand-logo { font-family: var(--font-headline); font-size: 1.25rem; font-weight: 900; letter-spacing: -0.02em; }
-
     .hero-section { padding: var(--space-64) 0 var(--space-96); }
     .hero-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-48); align-items: center; }
     @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.15fr 0.85fr; } }
-
-    .pre-headline-pill { display: inline-block; background-color: var(--color-n100); color: var(--color-n700); padding: var(--space-8) var(--space-12); border-radius: var(--radius-btn); border: 1px solid var(--color-n300); margin-bottom: var(--space-24); }
     .hero-title { font-size: var(--type-hero); font-weight: 900; margin-bottom: var(--space-24); }
     .hero-subtitle { font-size: var(--type-body-lg); color: var(--color-n500); line-height: 1.55; margin-bottom: var(--space-24); }
-
-    .btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: var(--type-body); font-weight: 600; padding: var(--space-16) var(--space-32); border-radius: var(--radius-btn); text-decoration: none; cursor: pointer; transition: opacity 0.15s ease, transform 0.1s ease; border: 1px solid transparent; }
-    .btn:active { transform: translateY(1px); }
-    .btn-ink { background-color: var(--color-ink); color: var(--color-white); border-color: var(--color-ink); }
-    .btn-ink:hover { background-color: #2E2E2E; }
-    .btn-pulse { background-color: var(--color-pulse); color: var(--color-ink); border-color: var(--color-pulse); font-weight: 700; }
-    .btn-pulse:hover { opacity: 0.92; }
-    .btn-full { width: 100%; }
-
-    .micro-cta { font-size: var(--type-small); color: var(--color-n500); margin-top: var(--space-8); line-height: 1.4; }
 
     .split-thumbnail-card { border: 1px solid var(--color-n300); border-radius: var(--radius-card); overflow: hidden; background: var(--color-white); }
     .split-preview-screen { display: grid; grid-template-columns: 1fr 1fr; min-height: 250px; position: relative; }
     .split-side { padding: var(--space-24); display: flex; flex-direction: column; justify-content: center; font-size: var(--type-small); line-height: 1.45; }
     .split-side.generic { background-color: var(--color-n100); color: var(--color-n500); border-right: 1px dashed var(--color-n300); }
     .split-side.reframed { background-color: var(--color-white); color: var(--color-ink); font-weight: 600; }
-    .split-divider-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: var(--color-lime); color: var(--color-ink); padding: var(--space-8) var(--space-12); border-radius: var(--radius-pill); white-space: nowrap; border: 1px solid var(--color-ink); }
-    .split-card-caption { padding: var(--space-12); text-align: center; font-family: var(--font-mono); font-size: var(--type-label); color: var(--color-n700); border-top: 1px solid var(--color-n300); background-color: var(--color-n100); }
-
-    .section-block { padding: var(--space-96) 0; border-top: 1px solid var(--color-n300); }
-    .section-block.quiet { background-color: var(--color-n100); }
-    .body-editorial { font-size: var(--type-body-lg); line-height: 1.7; color: var(--color-ink); margin-bottom: var(--space-24); }
-    .section-title { font-size: var(--type-h2); font-weight: 800; margin-bottom: var(--space-24); }
-    .section-kicker { font-family: var(--font-mono); font-size: var(--type-label); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-n500); margin-bottom: var(--space-12); }
+    /* Badge sits on the seam between the preview and the caption so it never covers the copy */
+    .split-divider-badge { position: absolute; top: 100%; left: 50%; transform: translate(-50%, -50%); z-index: 1; background-color: var(--color-lime); color: var(--color-ink); padding: var(--space-8) var(--space-12); border-radius: var(--radius-pill); white-space: nowrap; border: 1px solid var(--color-ink); }
+    .split-card-caption { padding: var(--space-24) var(--space-12) var(--space-12); text-align: center; font-family: var(--font-mono); font-size: var(--type-label); color: var(--color-n700); border-top: 1px solid var(--color-n300); background-color: var(--color-n100); }
 
     .checklist { list-style: none; margin: var(--space-32) 0; display: flex; flex-direction: column; gap: var(--space-16); }
-    .checklist-item { display: flex; align-items: flex-start; font-size: var(--type-body-lg); color: var(--color-ink); line-height: 1.5; }
+    .checklist-item { display: flex; align-items: flex-start; font-size: var(--type-body-lg); line-height: 1.5; }
     .checklist-item::before { content: "—"; font-weight: 900; margin-right: var(--space-12); color: var(--color-n500); flex-shrink: 0; }
+    .section-cta { margin-top: var(--space-32); }
 
+    .qualify-intro { margin-bottom: var(--space-48); }
     .form-wrapper { background-color: var(--color-white); border: 1px solid var(--color-n300); border-radius: var(--radius-card); padding: var(--space-32); margin-top: var(--space-48); }
-    .form-group { margin-bottom: var(--space-24); }
+    .form-title { font-size: var(--type-h3); margin-bottom: var(--space-8); }
+    .form-intro { font-size: var(--type-small); color: var(--color-n500); margin-bottom: var(--space-24); }
+    .form-group { margin-bottom: var(--space-24); border: 0; }
+    .form-group.spaced { margin-top: var(--space-32); }
     .form-label { display: block; font-size: var(--type-small); font-weight: 600; margin-bottom: var(--space-8); color: var(--color-ink); }
     .form-control { width: 100%; padding: var(--space-12) var(--space-16); font-family: var(--font-body); font-size: var(--type-body); border: 1px solid var(--color-n300); border-radius: var(--radius-btn); background-color: var(--color-white); color: var(--color-ink); }
     .radio-pill-group { display: grid; grid-template-columns: 1fr; gap: var(--space-8); }
     @media (min-width: 600px) { .radio-pill-group.grid-2 { grid-template-columns: 1fr 1fr; } }
     .radio-card { display: flex; align-items: center; padding: var(--space-12) var(--space-16); border: 1px solid var(--color-n300); background-color: var(--color-white); border-radius: var(--radius-btn); cursor: pointer; font-size: var(--type-small); }
+    .radio-card:has(input:checked) { border-color: var(--color-ink); background-color: var(--color-n100); }
     .radio-card input { margin-right: var(--space-12); accent-color: var(--color-ink); }
 
-    .page-footer { padding: var(--space-48) 0; border-top: 1px solid var(--color-n300); background-color: var(--color-n100); text-align: center; font-size: var(--type-small); color: var(--color-n500); }
+    .consent { margin-top: var(--space-24); display: flex; flex-direction: column; gap: var(--space-12); }
+    .consent-option { display: flex; align-items: flex-start; gap: var(--space-12); font-size: var(--type-small); line-height: 1.45; cursor: pointer; }
+    .consent-option input { margin-top: 0.2rem; accent-color: var(--color-ink); flex-shrink: 0; }
+    .consent-note { font-size: 0.8125rem; color: var(--color-n500); line-height: 1.5; }
+    .form-submit { margin-top: var(--space-32); }
+    .form-status { color: var(--color-error); font-size: var(--type-small); margin-top: var(--space-12); text-align: center; }
+    .form-status:empty { display: none; }
   </style>
 </head>
-<body>
+<body data-stage="01-optin">
 
   <header class="brand-header">
     <div class="container">
@@ -145,27 +77,25 @@
             For SMB owners who've noticed their messaging sounds a little too familiar lately.
           </div>
           <h1 class="hero-title">Your Competitors Are Using The Same AI Tools You Are. That's Why You All Sound Identical.</h1>
-          <p class="hero-subtitle">Free training: the exact process we use to know what to cut and how to reframe your message, so it sounds like your business again, not like everyone else's AI output.</p>
+          <p class="hero-subtitle">Free training: the exact process we use to decide what to cut and how to reframe your message, so it sounds like your business again. Not like everyone else's AI output.</p>
           <div>
-            <a href="#training-form" class="btn btn-ink">Watch The Free Training</a>
+            <a href="#training-form" class="btn btn-ink" data-track="cta_hero">Watch The Free Training</a>
             <p class="micro-cta">Because sounding like your competitors is costing you more than you think.</p>
           </div>
         </div>
 
-        <div>
-          <div class="split-thumbnail-card" aria-label="Visual proof: Comparison of identical copy vs reframed message">
-            <div class="split-preview-screen">
-              <div class="split-side generic">
-                <p><em>"We deliver innovative, tailored solutions to help your business grow and thrive in a digital era..."</em></p>
-              </div>
-              <span class="split-divider-badge mono-tag">SAME TOOLS</span>
-              <div class="split-side reframed">
-                <p>Cut the noise. We build brand positioning that makes clients choose you in under 30 seconds.</p>
-              </div>
+        <figure class="split-thumbnail-card">
+          <div class="split-preview-screen">
+            <div class="split-side generic">
+              <p><em>"We deliver innovative, tailored solutions to help your business grow and thrive in a digital era..."</em></p>
             </div>
-            <div class="split-card-caption">Completely different result.</div>
+            <span class="split-divider-badge mono-tag" aria-hidden="true">SAME TOOLS</span>
+            <div class="split-side reframed">
+              <p>Cut the noise. We build brand positioning that makes clients choose you in under 30 seconds.</p>
+            </div>
           </div>
-        </div>
+          <figcaption class="split-card-caption">Same tools. Completely different result.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -173,7 +103,7 @@
     <section class="section-block">
       <div class="container-reading">
         <div class="section-kicker">Is This Your Problem?</div>
-        <p class="body-editorial">AI didn't make it easier for you to stand out. It made it easier for your business to sound like everyone else's. Every competitor in your space has the same tools you do, which means the words on their site are starting to blur into the words on yours. This training shows you the part AI can't do for you: knowing what to cut, and what's actually worth saying.</p>
+        <p class="body-lg">AI didn't make it easier for you to stand out. It made it easier for your business to sound like everyone else's. Every competitor in your space has the same tools you do, which means the words on their site are starting to blur into the words on yours. This training shows you the part AI can't do for you: knowing what to cut, and what's actually worth saying.</p>
       </div>
     </section>
 
@@ -186,12 +116,12 @@
           <li class="checklist-item">A real side-by-side: the same business description, before and after the cut</li>
           <li class="checklist-item">The specific question we ask before we write a single word for you</li>
           <li class="checklist-item">Why cutting is harder than adding, and why that's exactly the point</li>
-          <li class="checklist-item">How this connects to whether an investor, a customer, or a referral actually remembers you</li>
+          <li class="checklist-item">How this connects to whether an investor, a customer or a referral actually remembers you</li>
           <li class="checklist-item">The 3 places your messaging is quietly giving away your edge</li>
           <li class="checklist-item">What happens in the first 14 days if you decide to work with us after this</li>
         </ul>
-        <div style="margin-top: var(--space-32);">
-          <a href="#training-form" class="btn btn-ink">Show Me The Training</a>
+        <div class="section-cta">
+          <a href="#training-form" class="btn btn-ink" data-track="cta_curriculum">Show Me The Training</a>
           <p class="micro-cta">Because you deserve to stand out, not blend in.</p>
         </div>
       </div>
@@ -200,59 +130,75 @@
     <!-- QUALIFICATION & FORM -->
     <section class="section-block">
       <div class="container-reading">
-        <div style="margin-bottom: var(--space-48);">
+        <div class="qualify-intro">
           <h2 class="section-title">Is This For You?</h2>
-          <p class="body-editorial">You're running a profitable business, you're not starting from zero, but something about your messaging isn't landing the way it should with investors, customers, or the market generally. This isn't for you if you just need a logo. It's for you if you need to stop sounding like your competitors.</p>
+          <p class="body-lg">You're running a profitable business. You're not starting from zero, but something about your messaging isn't landing the way it should with investors, customers or the market. This isn't for you if you just need a logo. It's for you if you need to stop sounding like your competitors.</p>
         </div>
 
         <div>
           <h2 class="section-title">One Thing Before You Watch</h2>
-          <p class="body-editorial">This isn't a pitch dressed up as a training. We'll show you the actual method, live, on a real example. If it's useful to you, there's an offer at the end. If it's not for you, you'll still leave with something you can use yourself.</p>
+          <p class="body-lg">This isn't a pitch dressed up as a training. We'll show you the actual method, live, on a real example. If it's useful to you, there's an offer at the end. If it's not for you, you'll still leave with something you can use yourself.</p>
         </div>
 
         <div id="training-form" class="form-wrapper">
-          <h3 style="font-size: var(--type-h3); margin-bottom: var(--space-8);">Get Instant Access</h3>
-          <p style="font-size: var(--type-small); color: var(--color-n500); margin-bottom: var(--space-24);">Enter your details to receive the training video link immediately.</p>
+          <h3 class="form-title">Get Instant Access</h3>
+          <p class="form-intro">Enter your details and the training opens straight away.</p>
 
-          <form action="/api/optin" method="POST">
+          <!-- data-endpoint: where the lead is POSTed (empty = demo mode, see impulse.js) -->
+          <form id="optin-form" method="post" data-endpoint="" data-next="impulse-page2-training.html">
+            <input type="hidden" name="utm_source" data-utm>
+            <input type="hidden" name="utm_medium" data-utm>
+            <input type="hidden" name="utm_campaign" data-utm>
+            <input type="hidden" name="utm_content" data-utm>
+            <input type="hidden" name="utm_term" data-utm>
+
             <div class="form-group">
               <label class="form-label" for="full-name">Full Name</label>
-              <input type="text" id="full-name" name="name" class="form-control" required placeholder="Alex Mercer">
+              <input type="text" id="full-name" name="name" class="form-control" required autocomplete="name" placeholder="Alex Mercer">
             </div>
 
             <div class="form-group">
               <label class="form-label" for="email">Work Email</label>
-              <input type="email" id="email" name="email" class="form-control" required placeholder="alex@company.com">
+              <input type="email" id="email" name="email" class="form-control" required autocomplete="email" placeholder="alex@company.com">
             </div>
 
             <div class="form-group">
               <label class="form-label" for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" class="form-control" required placeholder="+1 (555) 000-0000">
+              <input type="tel" id="phone" name="phone" class="form-control" required autocomplete="tel" placeholder="+1 (555) 000-0000">
             </div>
 
-            <div class="form-group" style="margin-top: var(--space-32);">
-              <label class="form-label">What's your business currently doing in monthly profit?</label>
+            <fieldset class="form-group spaced">
+              <legend class="form-label">What's your business currently doing in monthly profit?</legend>
               <div class="radio-pill-group grid-2">
                 <label class="radio-card"><input type="radio" name="monthly_profit" value="under_2k" required> Under $2,000</label>
                 <label class="radio-card"><input type="radio" name="monthly_profit" value="2k_to_5k"> $2,000 to $5,000</label>
                 <label class="radio-card"><input type="radio" name="monthly_profit" value="5k_to_15k"> $5,000 to $15,000</label>
                 <label class="radio-card"><input type="radio" name="monthly_profit" value="15k_plus"> $15,000+</label>
               </div>
-            </div>
+            </fieldset>
 
-            <div class="form-group" style="margin-top: var(--space-24);">
-              <label class="form-label">What's pulling at you most right now?</label>
+            <fieldset class="form-group">
+              <legend class="form-label">What's pulling at you most right now?</legend>
               <div class="radio-pill-group">
-                <label class="radio-card"><input type="radio" name="primary_challenge" value="investor_ready" required> Getting investor-ready or preparing to raise/get acquired</label>
+                <label class="radio-card"><input type="radio" name="primary_challenge" value="investor_ready" required> Getting investor-ready or preparing to raise or be acquired</label>
                 <label class="radio-card"><input type="radio" name="primary_challenge" value="conversion_drop"> Customers not converting the way they should</label>
-                <label class="radio-card"><input type="radio" name="primary_challenge" value="reputation_shift"> General reputation, want to be seen differently in the market</label>
-                <label class="radio-card"><input type="radio" name="primary_challenge" value="not_sure"> Not sure, just know something's off</label>
+                <label class="radio-card"><input type="radio" name="primary_challenge" value="reputation_shift"> General reputation: I want to be seen differently in the market</label>
+                <label class="radio-card"><input type="radio" name="primary_challenge" value="not_sure"> Not sure, I just know something's off</label>
               </div>
+            </fieldset>
+
+            <div class="consent">
+              <label class="consent-option">
+                <input type="checkbox" name="sms_consent" value="yes">
+                <span>Text me reminders and updates about the training and any call I book. Message and data rates may apply. Message frequency varies. Reply STOP to opt out at any time. Not required to get access.</span>
+              </label>
+              <p class="consent-note">By submitting, you agree that IMPULSE can email you the training and related follow-ups. You can unsubscribe at any time. See our <a href="privacy.html">Privacy Policy</a>.</p>
             </div>
 
-            <div style="margin-top: var(--space-32);">
+            <div class="form-submit">
               <button type="submit" class="btn btn-pulse btn-full">Get Instant Access</button>
-              <p class="micro-cta" style="text-align: center;">So you can see exactly what's making your business forgettable.</p>
+              <p class="form-status" role="alert"></p>
+              <p class="micro-cta text-center">So you can see exactly what's making your business forgettable.</p>
             </div>
           </form>
         </div>
@@ -262,9 +208,10 @@
 
   <footer class="page-footer">
     <div class="container">
-      <p>&copy; IMPULSE. We build brands people remember. Strategy before production.</p>
+      <p>&copy; IMPULSE. We build brands people remember. Strategy before production. · <a href="privacy.html">Privacy</a></p>
     </div>
   </footer>
 
+  <script src="impulse.js" defer></script>
 </body>
 </html>
