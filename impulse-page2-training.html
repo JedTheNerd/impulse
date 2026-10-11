@@ -3,60 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IMPULSE | Here's Your Problem (And The 14-Day Fix)</title>
+  <title>IMPULSE | Here's your problem (and the 14-day fix)</title>
   <meta name="description" content="Watch the 9-minute Cut & Reframe training, then book a free positioning review of your own messaging.">
   <meta name="robots" content="noindex">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Here's Your Problem (And The 14-Day Fix)">
+  <meta property="og:title" content="Here's your problem (and the 14-day fix)">
   <meta property="og:description" content="The exact reframe process, live, on a real example. 9 minutes.">
   <meta name="theme-color" content="#161616">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23161616'/%3E%3Cpath d='M5 17h6l3-8 4 14 3-6h6' fill='none' stroke='%23FD4E26' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23161616'/%3E%3Cpath d='M5 17h6l3-8 4 14 3-6h6' fill='none' stroke='%23F04E2E' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;900&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="impulse-tokens.css">
   <link rel="stylesheet" href="impulse.css">
 
   <style>
     body { padding-bottom: 76px; } /* room for the sticky CTA bar */
 
-    .hero-section { padding: var(--space-48) 0 var(--space-64); }
-    .pre-headline-pill { margin-bottom: var(--space-16); }
-    .page-title { font-size: var(--type-h1); font-weight: 900; margin-bottom: var(--space-16); max-width: 22ch; }
-    .page-subtitle { font-size: 1.1875rem; color: var(--color-n500); line-height: 1.5; margin-bottom: var(--space-24); display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-8); }
-    .time-badge { display: inline-flex; align-items: center; background: var(--color-n100); border: 1px solid var(--color-n300); color: var(--color-ink); padding: 0.15rem 0.5rem; border-radius: var(--radius-pill); font-size: 0.75rem; }
+    .hero-section { padding: var(--space-7) 0 var(--space-8); }
+    .pre-headline-pill { margin-bottom: var(--space-4); }
+    .page-title { font-size: var(--type-h1); margin-bottom: var(--space-4); max-width: 22ch; }
+    .page-subtitle { font-size: var(--text-body-lg); color: var(--text-secondary); line-height: 1.5; margin-bottom: var(--space-5); display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2); }
+    .time-badge { display: inline-flex; align-items: center; background: var(--bg-quiet); border: 1px solid var(--color-neutral-300); color: var(--color-ink); padding: var(--space-1) var(--space-2); border-radius: var(--radius-pill); }
 
-    .post-play-cta { text-align: center; padding: var(--space-24) 0 0; }
-    .post-play-cta p:first-child { font-size: var(--type-body); color: var(--color-n700); margin-bottom: var(--space-16); }
+    .post-play-cta { text-align: center; padding: var(--space-5) 0 0; }
+    .post-play-cta p:first-child { font-size: var(--text-body); color: var(--color-neutral-700); margin-bottom: var(--space-4); }
 
-    .step-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-24); margin: var(--space-24) 0; }
-    .step-list li { font-size: 1.1875rem; line-height: 1.6; padding-left: var(--space-32); position: relative; }
-    .step-list li strong { display: block; font-family: var(--font-headline); font-weight: 800; margin-bottom: var(--space-8); }
-    .step-list li::before { content: "—"; position: absolute; left: 0; color: var(--color-n500); font-weight: 900; }
+    .step-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-5); margin: var(--space-5) 0; }
+    .step-list li { font-size: var(--text-body-lg); line-height: 1.6; padding-left: var(--space-6); position: relative; }
+    .step-list li strong { display: block; font-family: var(--font-heading); font-weight: 700; margin-bottom: var(--space-2); }
+    .step-list li::before { content: "—"; position: absolute; left: 0; color: var(--text-secondary); font-weight: 600; }
 
-    .future-pace-block { font-size: 1.3125rem; line-height: 1.75; margin-bottom: var(--space-32); }
+    .future-pace-block { font-size: var(--text-body-lg); line-height: 1.75; margin-bottom: var(--space-6); }
 
-    .persona-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-24); margin-top: var(--space-32); }
+    .persona-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-5); margin-top: var(--space-6); }
     @media (min-width: 700px) { .persona-grid { grid-template-columns: 1fr 1fr; } }
-    .persona-card { background: var(--color-white); border: 1px solid var(--color-n300); border-radius: var(--radius-card); padding: var(--space-32); }
+    .persona-card { background: var(--color-white); border: 1px solid var(--color-neutral-300); border-radius: var(--radius-card); padding: var(--space-6); }
     .persona-card.yes { border-left: 4px solid var(--color-lime); }
-    .persona-card.no { border-left: 4px solid var(--color-n300); }
-    .persona-card h3 { font-size: 1.1875rem; margin-bottom: var(--space-16); }
-    .persona-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-12); }
-    .persona-list li { font-size: var(--type-body); line-height: 1.55; padding-left: 1.25rem; position: relative; }
-    .persona-list li::before { content: "–"; position: absolute; left: 0; color: var(--color-n500); }
+    .persona-card.no { border-left: 4px solid var(--color-neutral-300); }
+    .persona-card h3 { font-size: var(--text-h4); font-weight: 600; margin-bottom: var(--space-4); }
+    .persona-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
+    .persona-list li { font-size: var(--text-body); line-height: 1.55; padding-left: var(--space-5); position: relative; }
+    .persona-list li::before { content: "–"; position: absolute; left: 0; color: var(--text-secondary); }
 
-    .bottom-cta-panel { background-color: var(--color-white); border: 1px solid var(--color-n300); border-radius: var(--radius-card); padding: var(--space-48) var(--space-32); text-align: center; margin-top: var(--space-32); }
-    .bottom-cta-panel h3 { font-size: var(--type-h3); margin-bottom: var(--space-8); }
-    .bottom-cta-panel .panel-sub { font-size: var(--type-body); color: var(--color-n500); margin-bottom: var(--space-24); }
+    .bottom-cta-panel { background-color: var(--color-white); border: 1px solid var(--color-neutral-300); border-radius: var(--radius-card); padding: var(--space-7) var(--space-6); text-align: center; margin-top: var(--space-6); }
+    .bottom-cta-panel h3 { font-size: var(--text-h3); margin-bottom: var(--space-2); }
+    @media (max-width: 640px) { .bottom-cta-panel { padding: var(--space-6) var(--space-5); } .persona-card { padding: var(--space-5); } }
+    .bottom-cta-panel .panel-sub { font-size: var(--text-body); color: var(--text-secondary); margin-bottom: var(--space-5); }
 
-    .sticky-cta-bar { position: fixed; bottom: 0; left: 0; right: 0; background-color: rgba(255, 255, 255, 0.96); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid var(--color-n300); padding: var(--space-12) var(--space-24); z-index: 999; display: flex; align-items: center; justify-content: space-between; gap: var(--space-16); }
-    .sticky-cta-bar .btn { margin-left: auto; padding: var(--space-12) var(--space-24); white-space: nowrap; }
+    .sticky-cta-bar { position: fixed; bottom: 0; left: 0; right: 0; background-color: rgba(255, 255, 255, 0.96); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid var(--color-neutral-300); box-shadow: 0 -4px 16px rgba(22, 22, 22, 0.06); padding: var(--space-3) var(--space-5); z-index: 999; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+    .sticky-cta-bar .btn { margin-left: auto; padding: var(--space-3) var(--space-5); white-space: nowrap; }
     .sticky-info { display: none; }
     @media (min-width: 640px) {
       .sticky-info { display: flex; flex-direction: column; }
-      .sticky-info .meta-title { font-family: var(--font-headline); font-weight: 800; font-size: var(--type-small); }
-      .sticky-info .meta-sub { font-size: 0.75rem; color: var(--color-n500); }
+      .sticky-info .meta-title { font-family: var(--font-heading); font-weight: 700; font-size: var(--text-body-sm); }
+      .sticky-info .meta-sub { font-size: var(--text-caption); color: var(--text-secondary); }
     }
   </style>
 </head>
@@ -76,7 +78,7 @@
 
         <div class="pre-headline-pill mono-tag">You're seconds away from seeing the actual method.</div>
 
-        <h1 class="page-title">Here's Your Problem (And The 14-Day Fix)</h1>
+        <h1 class="page-title">Here's your problem (and the 14-day fix)</h1>
 
         <p class="page-subtitle">
           <span>The exact reframe process we use, live, on a real example.</span>
@@ -94,7 +96,7 @@
 
         <div class="post-play-cta">
           <p>Liked what you saw? Book your free review: the same process, applied to your business.</p>
-          <a href="impulse-page3-book-call.html" class="btn btn-pulse" data-track="cta_book_hero">Book Your Free Positioning Review</a>
+          <a href="impulse-page3-book-call.html" class="btn btn-pulse" data-track="cta_book_hero">Book your free positioning review</a>
           <p class="micro-cta">Because every week you sound like everyone else is a week you're easy to forget.</p>
         </div>
 
@@ -104,8 +106,8 @@
     <!-- SECTION 1: PROBLEM, YOU-FRAMED -->
     <section class="section-block">
       <div class="container-reading">
-        <div class="section-kicker">Here's Your Problem</div>
-        <h2 class="section-title">You Already Felt It In The Video</h2>
+        <div class="section-kicker">Here's your problem</div>
+        <h2 class="section-title">You already felt it in the video</h2>
         <p class="body-lg">Your messaging isn't wrong. It's just interchangeable. That's not a small thing for your business. It's the difference between an investor remembering you and forgetting you, a customer choosing you or scrolling past, and a referral naming you instead of gesturing at "the business that does the thing."</p>
       </div>
     </section>
@@ -113,8 +115,8 @@
     <!-- SECTION 2: WHAT'S KEEPING YOU BACK -->
     <section class="section-block quiet">
       <div class="container-reading">
-        <div class="section-kicker">Here's What's Keeping You Back</div>
-        <h2 class="section-title">Same Tools, Same Result</h2>
+        <div class="section-kicker">Here's what's keeping you back</div>
+        <h2 class="section-title">Same tools, same result</h2>
         <p class="body-lg">The AI tools you're using are the same ones your competitors are using. They aren't helping you stand out. They're quietly erasing the gap between you and them. Every generic line still sitting in your messaging is a line a prospect could read on three other sites without noticing the difference.</p>
       </div>
     </section>
@@ -122,8 +124,8 @@
     <!-- SECTION 3: YOU VS THEM -->
     <section class="section-block">
       <div class="container-reading">
-        <div class="section-kicker">You vs. Them</div>
-        <h2 class="section-title">What They Don't Have</h2>
+        <div class="section-kicker">You vs. them</div>
+        <h2 class="section-title">What they don't have</h2>
         <p class="body-lg">Your competitors are running the same prompts through the same tools, producing the same fine, forgettable copy. You don't need better AI. You need someone who knows your audience well enough to know what to cut: the one thing AI still can't do.</p>
         <p class="body-lg">That's the actual edge. Not a better headline generator, but judgment they don't have access to.</p>
       </div>
@@ -132,8 +134,8 @@
     <!-- SECTION 4: HOW WE GET YOU THERE -->
     <section class="section-block quiet">
       <div class="container-reading">
-        <div class="section-kicker">Here's How We Get You There</div>
-        <h2 class="section-title">The Process, Every Time</h2>
+        <div class="section-kicker">Here's how we get you there</div>
+        <h2 class="section-title">The process, every time</h2>
         <ul class="step-list">
           <li><strong>We look at what's already yours.</strong>Your site, your pitch, your social: whatever is currently speaking for your business.</li>
           <li><strong>We find what's generic in it.</strong>The lines that could sit on anyone's homepage without looking out of place.</li>
@@ -146,8 +148,8 @@
     <!-- SECTION 5: FUTURE PACE -->
     <section class="section-block">
       <div class="container-reading">
-        <div class="section-kicker">Here's What You Should Imagine Instead</div>
-        <h2 class="section-title">Picture This</h2>
+        <div class="section-kicker">Here's what you should imagine instead</div>
+        <h2 class="section-title">Picture this</h2>
         <p class="future-pace-block">Imagine your next investor call. Your pitch doesn't need a follow-up email explaining what you actually do, because it was clear the first time.</p>
         <p class="future-pace-block">Imagine a customer landing on your site mid-decision, already comparing you to two competitors, and feeling like your page was written for their exact situation. Not a template with your name on it.</p>
         <p class="future-pace-block">Imagine someone describing your business to a friend and saying something specific about you. Not "the one that does the thing," but something they remember because it was worth remembering.</p>
@@ -158,8 +160,8 @@
     <!-- SECTION 6: IS THIS FOR YOU -->
     <section class="section-block quiet">
       <div class="container-reading">
-        <div class="section-kicker">Is This For You?</div>
-        <h2 class="section-title">Before You Book</h2>
+        <div class="section-kicker">Is this for you?</div>
+        <h2 class="section-title">Before you book</h2>
 
         <div class="persona-grid">
           <div class="persona-card yes">
@@ -183,7 +185,7 @@
         <div class="bottom-cta-panel">
           <h3>Ready to review your messaging?</h3>
           <p class="panel-sub">20 to 30 minutes. We go through your site, pitch deck or current copy live, with you.</p>
-          <a href="impulse-page3-book-call.html" class="btn btn-pulse" data-track="cta_book_bottom">Book Your Free Positioning Review</a>
+          <a href="impulse-page3-book-call.html" class="btn btn-ink" data-track="cta_book_bottom">Book your free positioning review</a>
           <p class="micro-cta">Because every week you sound like everyone else is a week you're easy to forget.</p>
         </div>
       </div>
@@ -192,10 +194,10 @@
 
   <aside class="sticky-cta-bar" aria-label="Book your review">
     <div class="sticky-info">
-      <span class="meta-title">Free Positioning Review</span>
+      <span class="meta-title">Free positioning review</span>
       <span class="meta-sub">20–30 min · A real review of your copy, not a sales pitch</span>
     </div>
-    <a href="impulse-page3-book-call.html" class="btn btn-pulse" data-track="cta_book_sticky">Book Your Free Review</a>
+    <a href="impulse-page3-book-call.html" class="btn btn-ink" data-track="cta_book_sticky">Book your free review</a>
   </aside>
 
   <footer class="page-footer">

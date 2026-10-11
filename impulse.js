@@ -57,7 +57,7 @@
         .catch(function () {
           submitBtn.disabled = false;
           submitBtn.textContent = submitLabel;
-          status.textContent = 'Something went wrong sending your details. Please try again.';
+          status.textContent = 'Error: we couldn\'t send your details. Please try again.';
         });
     });
   }
@@ -96,7 +96,7 @@
     var muteBtn = document.createElement('button');
     muteBtn.type = 'button';
     muteBtn.className = 'mute-toggle';
-    muteBtn.textContent = '🔇 TAP TO UNMUTE';
+    muteBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="m23 9-6 6M17 9l6 6"/></svg>Tap to unmute';
     muteBtn.addEventListener('click', function () {
       video.muted = false;
       video.play();
@@ -150,11 +150,85 @@
     var calNext = calendar.getAttribute('data-calendar-next');
     window.addEventListener('message', function (e) {
       if (e.origin !== 'https://calendly.com' || !e.data || !e.data.event) return;
+      // Calendly reports its content height; size the iframe to match so
+      // phones don't get a scrolling box inside the scrolling page.
+      if (e.data.event === 'calendly.page_height') {
+        var h = parseInt(e.data.payload && e.data.payload.height, 10);
+        if (h > 300 && h < 3000) iframe.style.height = h + 'px';
+      }
       if (e.data.event === 'calendly.event_scheduled') {
         track('call_booked');
         if (calNext) window.location.href = calNext;
       }
     });
+  }
+
+  // --- Cut demo (page 1) ---
+  // A magnifying glass reads across the generic copy, line by line, showing the
+  // reframed copy under the lens; then the reveal widens to the whole card,
+  // holds, and starts again. With a mouse, the lens follows the pointer.
+  // Reduced-motion visitors get the finished (reframed) card with no movement.
+  var cutStage = document.querySelector('[data-cut-demo]');
+  if (cutStage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var PATH = [[0.1, 0.42], [0.9, 0.42], [0.1, 0.56], [0.9, 0.56], [0.1, 0.7], [0.9, 0.7]];
+    var SEGMENT = 1100, REVEAL = 700, HOLD = 3000;
+    var SCAN = (PATH.length - 1) * SEGMENT, CYCLE = SCAN + REVEAL + HOLD;
+    var cutStart = null, cutFollowing = false, cutVisible = true, cutFrame = null;
+
+    var ease = function (t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; };
+    var setLens = function (x, y, r) {
+      cutStage.style.setProperty('--x', x + 'px');
+      cutStage.style.setProperty('--y', y + 'px');
+      cutStage.style.setProperty('--r', r + 'px');
+    };
+
+    var cutTick = function (now) {
+      cutFrame = null;
+      if (cutFollowing || !cutVisible) return;
+      if (cutStart === null) cutStart = now;
+      var w = cutStage.clientWidth, h = cutStage.clientHeight;
+      var lens = Math.max(36, Math.min(60, w * 0.12));
+      cutStage.style.setProperty('--lens', lens + 'px');
+      var t = (now - cutStart) % CYCLE;
+
+      if (t < SCAN) {
+        var i = Math.floor(t / SEGMENT), k = ease((t % SEGMENT) / SEGMENT);
+        var a = PATH[i], b = PATH[i + 1];
+        cutStage.classList.add('is-scanning');
+        setLens((a[0] + (b[0] - a[0]) * k) * w, (a[1] + (b[1] - a[1]) * k) * h, lens - 3);
+      } else {
+        var end = PATH[PATH.length - 1];
+        var grow = ease(Math.min(1, (t - SCAN) / REVEAL));
+        cutStage.classList.remove('is-scanning');
+        setLens(end[0] * w, end[1] * h, lens + (Math.hypot(w, h) - lens) * grow);
+      }
+      cutFrame = window.requestAnimationFrame(cutTick);
+    };
+    var cutRun = function () { if (cutFrame === null) cutFrame = window.requestAnimationFrame(cutTick); };
+
+    cutStage.addEventListener('pointermove', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      var box = cutStage.getBoundingClientRect();
+      var lens = parseFloat(cutStage.style.getPropertyValue('--lens')) || 56;
+      cutFollowing = true;
+      cutStage.classList.add('is-scanning');
+      setLens(e.clientX - box.left, e.clientY - box.top, lens - 3);
+    });
+    cutStage.addEventListener('pointerleave', function () {
+      if (!cutFollowing) return;
+      cutFollowing = false;
+      cutStart = null;
+      cutRun();
+    });
+
+    // Only animate while the card is on screen.
+    if (typeof window.IntersectionObserver === 'function') {
+      new IntersectionObserver(function (entries) {
+        cutVisible = entries[0].isIntersecting;
+        if (cutVisible) cutRun();
+      }).observe(cutStage);
+    }
+    cutRun();
   }
 
   // --- CTA click tracking ---

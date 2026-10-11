@@ -3,31 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IMPULSE | You're Booked. Here's What Happens Next.</title>
+  <title>IMPULSE | You're booked. Here's what happens next.</title>
   <meta name="description" content="Your positioning review is booked. Watch the 5-minute orientation video and send us your current messaging before the call.">
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#161616">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23161616'/%3E%3Cpath d='M5 17h6l3-8 4 14 3-6h6' fill='none' stroke='%23FD4E26' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23161616'/%3E%3Cpath d='M5 17h6l3-8 4 14 3-6h6' fill='none' stroke='%23F04E2E' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;900&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="impulse-tokens.css">
   <link rel="stylesheet" href="impulse.css">
 
   <style>
-    .thank-you-layout { width: 100%; max-width: var(--content-max); margin: 0 auto; padding: var(--space-64) var(--space-24) var(--space-96); }
+    .thank-you-layout { width: 100%; max-width: calc(var(--content-max) + 2 * var(--reading-margin)); margin: 0 auto; padding: var(--space-8) var(--reading-margin) var(--space-section); }
 
-    .confirmation-title { font-size: var(--type-h1); font-weight: 900; margin-bottom: var(--space-16); text-align: center; }
-    .reaffirm-line { font-size: var(--type-body-lg); text-align: center; max-width: 56ch; margin: 0 auto var(--space-32); line-height: 1.6; }
-    .video-instruction { font-size: var(--type-body-lg); color: var(--color-n500); text-align: center; margin-bottom: var(--space-32); }
-    .video-shell { margin-bottom: var(--space-24); }
-    .video-micro { text-align: center; margin-bottom: var(--space-48); }
+    .confirmation-title { font-size: var(--type-h1); margin-bottom: var(--space-4); text-align: center; }
+    .reaffirm-line { font-size: var(--text-body-lg); text-align: center; max-width: 56ch; margin: 0 auto var(--space-6); line-height: 1.6; }
+    .video-instruction { font-size: var(--text-body-lg); color: var(--text-secondary); text-align: center; margin-bottom: var(--space-6); }
+    .video-shell { margin-bottom: var(--space-5); }
+    .video-micro { text-align: center; margin-bottom: var(--space-7); }
 
-    .action-card { background-color: var(--color-n100); border: 1px solid var(--color-n300); border-radius: var(--radius-card); padding: var(--space-32); }
-    .action-card-header { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-12); margin-bottom: var(--space-16); }
-    .badge-pill { background-color: var(--color-lime); color: var(--color-ink); padding: var(--space-8) var(--space-12); border-radius: var(--radius-pill); border: 1px solid var(--color-ink); }
-    .action-title { font-size: var(--type-h3); font-weight: 800; letter-spacing: -0.02em; }
-    .action-body { font-size: var(--type-body-lg); line-height: 1.65; }
+    .action-card { background-color: var(--bg-quiet); border: 1px solid var(--color-neutral-300); border-radius: var(--radius-card); padding: var(--space-6); }
+    @media (max-width: 640px) { .action-card { padding: var(--space-5); } }
+    .action-card-header { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); }
+    .badge-pill { background-color: var(--color-pulse-tint); color: var(--color-ink); padding: var(--space-2) var(--space-3); border-radius: var(--radius-pill); }
+    .action-title { font-size: var(--text-h3); }
+    .action-body { font-size: var(--text-body-lg); line-height: 1.65; }
   </style>
 </head>
 <body data-stage="04-booked">
@@ -41,7 +43,7 @@
 
   <main>
     <section class="thank-you-layout">
-      <h1 class="confirmation-title">You're Booked. Here's What Happens Next.</h1>
+      <h1 class="confirmation-title">You're booked. Here's what happens next.</h1>
 
       <p class="reaffirm-line">We mean that. Most businesses that notice their messaging is blending in just live with it. You didn't. That's worth something, and it's why we won't waste your next 5 minutes, or the 20 to 30 on your call.</p>
 
@@ -60,7 +62,7 @@
       <div class="action-card">
         <div class="action-card-header">
           <span class="badge-pill mono-tag">ACTION REQUIRED</span>
-          <h2 class="action-title">Here's What You Need to Do Before Your Call</h2>
+          <h2 class="action-title">Here's what you need to do before your call</h2>
         </div>
         <p class="action-body">Reply to your confirmation email with your current website link or pitch deck, whichever is the main way people encounter your messaging right now. Don't rewrite anything first. We want to see it exactly as it is.</p>
       </div>
