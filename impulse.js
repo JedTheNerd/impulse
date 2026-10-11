@@ -111,16 +111,50 @@
   });
 
   // --- Calendar embed (page 3) ---
-  // data-calendar-src: scheduler embed URL (Calendly, Cal.com, etc.). Set that
-  // tool's "redirect after booking" option to impulse-page4-thank-you.html.
+  // data-calendar-src:  scheduler link, e.g. https://calendly.com/you/positioning-review
+  // data-calendar-next: page to send the visitor to once they've booked.
   var calendar = document.querySelector('[data-calendar-src]');
+  var calUrl = null;
   if (calendar && calendar.getAttribute('data-calendar-src')) {
+    // A malformed link would throw here and stop the rest of this script,
+    // so keep the placeholder and warn instead.
+    try {
+      calUrl = new URL(calendar.getAttribute('data-calendar-src'));
+      if (calUrl.protocol !== 'https:') throw new Error('not https');
+    } catch (err) {
+      calUrl = null;
+      console.warn('[impulse] data-calendar-src must be a full https:// link, e.g. https://calendly.com/you/positioning-review');
+    }
+  }
+  if (calUrl) {
+    var isCalendly = /(^|\.)calendly\.com$/.test(calUrl.hostname);
+
+    if (isCalendly) {
+      // embed_domain makes Calendly post booking events back to this page.
+      calUrl.searchParams.set('embed_domain', window.location.hostname || 'localhost');
+      calUrl.searchParams.set('embed_type', 'Inline');
+      // Pass this page's UTM tags through so bookings are attributed.
+      new URLSearchParams(window.location.search).forEach(function (value, key) {
+        if (key.indexOf('utm_') === 0) calUrl.searchParams.set(key, value);
+      });
+    }
+
     var iframe = document.createElement('iframe');
-    iframe.src = calendar.getAttribute('data-calendar-src');
+    iframe.src = calUrl.toString();
     iframe.title = 'Pick a time for your positioning review';
-    iframe.loading = 'lazy';
     calendar.innerHTML = '';
     calendar.appendChild(iframe);
+
+    // Redirect after booking. Works on Calendly's free plan, so the paid
+    // "redirect to external site" setting isn't needed.
+    var calNext = calendar.getAttribute('data-calendar-next');
+    window.addEventListener('message', function (e) {
+      if (e.origin !== 'https://calendly.com' || !e.data || !e.data.event) return;
+      if (e.data.event === 'calendly.event_scheduled') {
+        track('call_booked');
+        if (calNext) window.location.href = calNext;
+      }
+    });
   }
 
   // --- CTA click tracking ---

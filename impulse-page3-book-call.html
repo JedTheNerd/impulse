@@ -79,9 +79,10 @@
         <div>
           <p class="micro-cta-above">You're one click from seeing this done on your own business.</p>
           <div class="calendar-card">
-            <!-- Set data-calendar-src to your scheduler's embed URL, and set the
-                 scheduler's post-booking redirect to impulse-page4-thank-you.html -->
-            <div class="calendar-embed-slot" data-calendar-src="">
+            <!-- Paste your Calendly event link into data-calendar-src, e.g.
+                 https://calendly.com/your-name/positioning-review
+                 impulse.js embeds it and redirects to data-calendar-next after booking. -->
+            <div class="calendar-embed-slot" data-calendar-src="" data-calendar-next="impulse-page4-thank-you.html">
               <div class="embed-placeholder">
                 [CALENDAR EMBED]
                 <code>Set data-calendar-src on .calendar-embed-slot</code>
