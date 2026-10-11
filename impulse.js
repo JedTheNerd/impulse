@@ -231,6 +231,61 @@
     cutRun();
   }
 
+  // --- Exit-intent popup (pages 1 to 3) ---
+  // Opens when the cursor leaves through the top of the window, or after
+  // data-exit-delay ms. Shown at most once per browser session across the funnel.
+  var exitModal = document.querySelector('[data-exit-modal]');
+  if (exitModal) {
+    var EXIT_KEY = 'impulse_popup_shown';
+    var exitShown = false, exitReturnFocus = null;
+    var exitSeen = function () {
+      try { return !!window.sessionStorage.getItem(EXIT_KEY); } catch (err) { return false; }
+    };
+
+    var showExit = function (trigger) {
+      if (exitShown || exitSeen()) return;
+      // Don't interrupt someone who is filling in a form.
+      var active = document.activeElement;
+      if (active && /^(INPUT|SELECT|TEXTAREA)$/.test(active.tagName)) return;
+      exitShown = true;
+      try { window.sessionStorage.setItem(EXIT_KEY, '1'); } catch (err) { /* private mode */ }
+      exitReturnFocus = active;
+      exitModal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      exitModal.querySelector('.exit-modal-close').focus();
+      track('exit_modal_shown', { trigger: trigger });
+    };
+
+    var hideExit = function () {
+      if (exitModal.hidden) return;
+      exitModal.hidden = true;
+      document.body.style.overflow = '';
+      if (exitReturnFocus && exitReturnFocus.focus) exitReturnFocus.focus();
+    };
+
+    document.addEventListener('mouseout', function (e) {
+      if (!e.relatedTarget && e.clientY < 10) showExit('exit_intent');
+    });
+    window.setTimeout(function () { showExit('timer'); },
+      parseInt(exitModal.getAttribute('data-exit-delay'), 10) || 20000);
+
+    // Backdrop click, the close button, the dismiss link and the CTA all close it.
+    exitModal.addEventListener('click', function (e) {
+      if (e.target === exitModal || e.target.closest('[data-exit-close]')) hideExit();
+    });
+
+    // Escape closes; Tab stays inside the dialog while it's open.
+    document.addEventListener('keydown', function (e) {
+      if (exitModal.hidden) return;
+      if (e.key === 'Escape') { hideExit(); return; }
+      if (e.key !== 'Tab') return;
+      var focusable = exitModal.querySelectorAll('a[href], button');
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+  }
+
   // --- CTA click tracking ---
   document.querySelectorAll('[data-track]').forEach(function (el) {
     el.addEventListener('click', function () { track(el.getAttribute('data-track')); });

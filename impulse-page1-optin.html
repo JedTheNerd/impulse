@@ -230,6 +230,19 @@
     </div>
   </footer>
 
+  <!-- Exit-intent popup: opens when the cursor heads for the top of the window,
+       or after data-exit-delay ms (covers phones, where exit intent can't fire). Once per browser session. -->
+  <div class="exit-modal-overlay" data-exit-modal data-exit-delay="20000" hidden>
+    <div class="exit-modal" role="dialog" aria-modal="true" aria-labelledby="exit-modal-title">
+      <button type="button" class="exit-modal-close" data-exit-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <p class="section-kicker">Before you go</p>
+      <h2 id="exit-modal-title">Still sound like your competitors?</h2>
+      <p class="exit-modal-body">It takes less than a minute to grab the training. Watch it whenever suits you. We just don't want you leaving empty-handed.</p>
+      <a href="#training-form" class="btn btn-ink btn-full" data-exit-close data-track="cta_exit_modal">Yes, send me the training</a>
+      <button type="button" class="exit-modal-dismiss" data-exit-close>No thanks, I'll figure it out myself</button>
+    </div>
+  </div>
+
   <script src="impulse.js" defer></script>
 </body>
 </html>

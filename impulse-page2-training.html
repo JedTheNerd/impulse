@@ -206,6 +206,19 @@
     </div>
   </footer>
 
+  <!-- Exit-intent popup: opens when the cursor heads for the top of the window,
+       or after data-exit-delay ms (longer here, so it doesn't cut into the video). Once per browser session. -->
+  <div class="exit-modal-overlay" data-exit-modal data-exit-delay="45000" hidden>
+    <div class="exit-modal" role="dialog" aria-modal="true" aria-labelledby="exit-modal-title">
+      <button type="button" class="exit-modal-close" data-exit-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <p class="section-kicker">Before you go</p>
+      <h2 id="exit-modal-title">Leaving before you see the fix?</h2>
+      <p class="exit-modal-body">You already know the problem. The call is free, 20 to 30 minutes, and it's the same process applied to your actual business.</p>
+      <a href="impulse-page3-book-call.html" class="btn btn-ink btn-full" data-exit-close data-track="cta_exit_modal">Book my free positioning review</a>
+      <button type="button" class="exit-modal-dismiss" data-exit-close>Not right now</button>
+    </div>
+  </div>
+
   <script src="impulse.js" defer></script>
 </body>
 </html>

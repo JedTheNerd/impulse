@@ -81,7 +81,7 @@
       </div>
 
       <div class="booking-layout">
-        <div>
+        <div id="calendar">
           <p class="micro-cta-above">You're one click from seeing this done on your own business.</p>
           <div class="calendar-card">
             <!-- Paste your Calendly event link into data-calendar-src, e.g.
@@ -129,6 +129,19 @@
   <footer class="page-footer">
     <div class="container"><p>&copy; IMPULSE. We build brands people remember. Strategy before production. · <a href="privacy.html">Privacy</a></p></div>
   </footer>
+
+  <!-- Exit-intent popup: opens when the cursor heads for the top of the window,
+       or after data-exit-delay ms (shorter, since this is a short page). Once per browser session. -->
+  <div class="exit-modal-overlay" data-exit-modal data-exit-delay="15000" hidden>
+    <div class="exit-modal" role="dialog" aria-modal="true" aria-labelledby="exit-modal-title">
+      <button type="button" class="exit-modal-close" data-exit-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <p class="section-kicker">Before you go</p>
+      <h2 id="exit-modal-title">Still deciding?</h2>
+      <p class="exit-modal-body">No pressure. This slot will be here when you're ready. If something's holding you back, it's probably covered in the breakdown beside the calendar.</p>
+      <a href="#calendar" class="btn btn-ink btn-full" data-exit-close data-track="cta_exit_modal">Take me back to the calendar</a>
+      <button type="button" class="exit-modal-dismiss" data-exit-close>I'll come back later</button>
+    </div>
+  </div>
 
   <script src="impulse.js" defer></script>
 </body>
