@@ -1,0 +1,108 @@
+/* Impulse design tokens
+   Source: Figma "Impulse (Copy)", Page 4 (Cheat sheet, Colour, Typography frames)
+   Brand style guide and design system, Draft 1, October 2026 */
+
+:root {
+  /* Brand */
+  --color-ink: #161616;            /* text, main buttons, headlines, footer */
+  --color-ink-dark: #0B0B0B;       /* pressed buttons, true black backgrounds */
+  --color-ink-light: #3A3733;      /* button hover, softer dark panels */
+  --color-pulse: #F04E2E;          /* the signal: accent button (ink text), highlights, big numbers */
+  --color-pulse-text: #C9341E;     /* links and small text on white */
+  --color-pulse-hover: #D63A22;    /* accent button on hover */
+  --color-pulse-tint: #FDE9E4;     /* soft backgrounds, badges, selected cards */
+  --color-pulse-on-dark: #FF7A5C;  /* small Pulse text in dark mode */
+  --color-lime: #D4F24B;           /* highlighter blocks and social graphics only, never text */
+  --color-lime-text: #5C7A00;      /* only if lime must be read as text on white */
+  --color-lime-tint: #F3FBD2;      /* soft background */
+  --color-white: #FFFFFF;
+  --color-paper: #F7F4EE;          /* marketing pages only */
+
+  /* Greys (slightly warm) */
+  --color-neutral-50: #FAF9F7;
+  --color-neutral-100: #F2F0EC;
+  --color-neutral-200: #E6E3DD;
+  --color-neutral-300: #D2CEC6;
+  --color-neutral-400: #A9A49B;
+  --color-neutral-500: #7B766E;
+  --color-neutral-600: #58544E;
+  --color-neutral-700: #3A3733;
+  --color-neutral-800: #232120;
+  --color-neutral-900: #161616;
+  --color-black: #0B0B0B;
+
+  /* Status (always with an icon and a word, never colour alone) */
+  --color-success: #1F7A4D;
+  --color-success-tint: #E3F3EA;
+  --color-warning: #9A5C00;
+  --color-warning-tint: #FFF3DC;
+  --color-error: #B3261E;
+  --color-error-tint: #FBE7E5;
+  --color-info: #1D5FBF;
+  --color-info-tint: #E4EDFB;
+
+  /* Semantic roles */
+  --bg-page: var(--color-white);
+  --bg-card: var(--color-white);           /* plus 1px grey border */
+  --bg-floating: var(--color-white);       /* plus soft shadow */
+  --bg-quiet: var(--color-neutral-100);
+  --bg-input: var(--color-white);
+  --bg-paper: var(--color-paper);
+  --text-main: var(--color-ink);
+  --text-secondary: var(--color-neutral-600);
+  --text-quiet: var(--color-neutral-500);
+  --text-disabled: var(--color-neutral-400);
+  --text-on-dark: var(--color-white);
+  --text-link: var(--color-pulse-text);
+
+  /* Fonts */
+  --font-heading: "Archivo", Helvetica, Arial, sans-serif;
+  --font-body: "Inter", Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", Menlo, monospace;
+
+  /* Type scale (px) */
+  --text-display: 96px;      /* Archivo black. Hero statements, social covers. One per page */
+  --text-hero: 64px;         /* Archivo black. Landing hero headline */
+  --text-h1: 48px;           /* Archivo bold. Page titles, case-study titles */
+  --text-h2: 36px;           /* Archivo bold. Section headings */
+  --text-h3: 28px;           /* Archivo bold. Card and module headings */
+  --text-h4: 22px;           /* Archivo semibold. Sub-headings, list titles */
+  --text-body-lg: 18px;      /* Inter regular. Standfirsts, intros */
+  --text-body: 16px;         /* Inter regular. Default paragraph text */
+  --text-body-sm: 14px;      /* Inter regular. Secondary copy, table cells */
+  --text-caption: 12px;      /* Inter regular. Image captions, small print */
+  --text-label: 13px;        /* Inter semibold. Form labels, UI labels */
+  --text-button: 15px;       /* Inter semibold. md buttons (sm 13, lg 16) */
+  --text-nav: 14px;          /* Inter medium. Primary navigation */
+  --text-overline: 11px;     /* IBM Plex Mono medium, capitals. Small labels above headings */
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-section: 96px;     /* between page sections */
+  --space-section-lg: 128px;
+
+  /* Radius */
+  --radius-0: 0;
+  --radius-button: 4px;
+  --radius-card: 8px;
+  --radius-dialog: 12px;
+  --radius-pill: 9999px;     /* tags */
+
+  /* Grid */
+  --grid-columns: 12;        /* desktop */
+  --grid-margin: 96px;
+}
+
+@media (max-width: 1024px) { /* tablet: breakpoint value is my assumption, not in the guide */
+  :root { --grid-columns: 8; --grid-margin: 32px; }
+}
+@media (max-width: 640px) {  /* phone: breakpoint value is my assumption, not in the guide */
+  :root { --grid-columns: 4; --grid-margin: 20px; }
+}
